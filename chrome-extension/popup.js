@@ -14,6 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (result.accessibilityPreferences) {
             populateAccessibilityFeatures(result.accessibilityPreferences);
+        } else {
+            // Show message if no preferences found
+            accessibilityFeatures.innerHTML = '<p class="no-features">No accessibility features configured. <a href="#" id="setupLink">Configure now</a></p>';
+            document.getElementById('setupLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                chrome.tabs.create({
+                    url: chrome.runtime.getURL('questionnaire.html')
+                });
+            });
         }
     });
     
