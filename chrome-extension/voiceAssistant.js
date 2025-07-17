@@ -287,6 +287,27 @@ class VoiceAssistant {
         this.showSuccess(`${enabled ? 'Enabled' : 'Disabled'} ${featureId}`);
     }
     
+    handleDarkModeToggle() {
+        // Toggle dark mode using quick action
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'toggleDarkMode' });
+        });
+        
+        this.showSuccess('Toggled dark mode');
+    }
+    
+    showTranscript(transcript) {
+        if (!this.voiceStatus) return;
+        
+        // Show real-time transcript
+        this.voiceStatus.innerHTML = `
+            <div class="transcript-container">
+                <strong>Listening:</strong> "${transcript}"
+            </div>
+        `;
+        this.voiceStatus.className = 'voice-status listening';
+    }
+    
     updateUI(state) {
         if (!this.voiceBtn || !this.voiceStatus) return;
         
