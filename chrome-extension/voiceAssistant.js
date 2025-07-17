@@ -39,7 +39,7 @@ class VoiceAssistant {
         this.recognition = new SpeechRecognition();
         
         this.recognition.continuous = false;
-        this.recognition.interimResults = false;
+        this.recognition.interimResults = true; // Enable interim results for real-time transcript
         this.recognition.lang = 'en-US';
         
         this.recognition.onstart = () => {
@@ -48,12 +48,48 @@ class VoiceAssistant {
         };
         
         this.recognition.onresult = (event) => {
-            const transcript = event.results[0][0].transcript.toLowerCase();
-            this.processVoiceCommand(transcript);
+            let interimTranscript = '';
+            let finalTranscript = '';
+            
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+                const transcript = event.results[i][0].transcript;
+                if (event.results[i].isFinal) {
+                    finalTranscript += transcript;
+                } else {
+                    interimTranscript += transcript;
+                }
+            }
+            
+            // Show real-time transcript
+            this.showTranscript(interimTranscript || finalTranscript);
+            
+            // Process final transcript
+            if (finalTranscript) {
+                this.processVoiceCommand(finalTranscript.toLowerCase());
+            }
         };
         
         this.recognition.onerror = (event) => {
-            this.showError(`Speech recognition error: ${event.error}`);
+            let errorMessage = '';
+            
+            switch(event.error) {
+                case 'no-speech':
+                    errorMessage = 'No speech detected. Please try again.';
+                    break;
+                case 'audio-capture':
+                    errorMessage = 'Microphone not accessible. Please check permissions.';
+                    break;
+                case 'not-allowed':
+                    errorMessage = 'Microphone permission denied. Please enable microphone access.';
+                    break;
+                case 'network':
+                    errorMessage = 'Network error. Please check your connection.';
+                    break;
+                default:
+                    errorMessage = `Speech recognition error: ${event.error}`;
+            }
+            
+            this.showError(errorMessage);
             this.isListening = false;
             this.updateUI('idle');
         };
