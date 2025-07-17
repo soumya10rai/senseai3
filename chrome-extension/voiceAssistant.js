@@ -107,13 +107,42 @@ class VoiceAssistant {
         }
         
         try {
-            // Request microphone permission
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            stream.getTracks().forEach(track => track.stop()); // Stop the stream immediately
+            // Request microphone permission explicitly
+            const permissionResult = await navigator.permissions.query({name: 'microphone'});
             
+            if (permissionResult.state === 'denied') {
+                this.showError('Microphone permission denied. Please enable microphone access in your browser settings.');
+                return;
+            }
+            
+            // Test microphone access
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            this.showSuccess('Microphone access granted. Starting voice recognition...');
+            
+            // Stop the stream immediately (we don't need to keep it open)
+            stream.getTracks().forEach(track => track.stop());
+            
+            // Start speech recognition
             this.recognition.start();
+            
         } catch (error) {
-            this.showError('Microphone permission denied. Please enable microphone access.');
+            let errorMessage = '';
+            
+            switch(error.name) {
+                case 'NotAllowedError':
+                    errorMessage = 'Microphone permission denied. Please click the microphone icon in your browser address bar and allow access.';
+                    break;
+                case 'NotFoundError':
+                    errorMessage = 'No microphone found. Please check your microphone connection.';
+                    break;
+                case 'AbortError':
+                    errorMessage = 'Microphone access was aborted. Please try again.';
+                    break;
+                default:
+                    errorMessage = `Microphone error: ${error.message}`;
+            }
+            
+            this.showError(errorMessage);
         }
     }
     
