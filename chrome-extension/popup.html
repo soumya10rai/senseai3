@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetterWeb</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="popup-body">
+    <div class="popup-container">
+        <div class="popup-header">
+            <h2>BetterWeb</h2>
+            <button id="settingsBtn" class="settings-btn">⚙️</button>
+        </div>
+        
+        <div class="popup-content">
+            <div id="voiceSection" class="voice-section">
+                <button id="voiceBtn" class="voice-btn">
+                    <span class="voice-icon">🎙️</span>
+                    <span class="voice-text">Click to Speak</span>
+                </button>
+                <div id="voiceStatus" class="voice-status"></div>
+            </div>
+
+            <div class="features-section">
+                <h3>Accessibility Features</h3>
+                <div id="accessibilityFeatures" class="features-grid">
+                    <!-- Features will be dynamically populated -->
+                </div>
+            </div>
+
+            <div class="quick-actions-section">
+                <h3>Quick Actions</h3>
+                <div id="quickActions" class="actions-grid">
+                    <button class="action-btn" data-action="resetPage">
+                        <span class="action-icon">🔄</span>
+                        <span>Reset Page</span>
+                    </button>
+                    <button class="action-btn" data-action="toggleDarkMode">
+                        <span class="action-icon">🌙</span>
+                        <span>Toggle Dark Mode</span>
+                    </button>
+                    <button class="action-btn" data-action="openSettings">
+                        <span class="action-icon">⚙️</span>
+                        <span>Settings</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="voiceAssistant.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

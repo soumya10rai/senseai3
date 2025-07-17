@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetterWeb - Accessibility Preferences</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="questionnaire-body">
+    <div class="questionnaire-container">
+        <div class="questionnaire-card">
+            <div class="header">
+                <h1>Customize Your Experience</h1>
+                <p>Select the accessibility features that will help you browse the web better</p>
+            </div>
+            
+            <form id="accessibilityForm">
+                <div class="category-section">
+                    <h3>🧿 Visual Disabilities</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visual" value="increaseFontSize">
+                            <span>Increase Font Size</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visual" value="increaseContrast">
+                            <span>Increase Contrast</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visual" value="textToSpeech">
+                            <span>Enable Text-to-Speech</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visual" value="zoomTool">
+                            <span>Zoom Tool</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visual" value="cursorEnhancer">
+                            <span>Cursor Size Enhancer</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visual" value="screenReaderLabels">
+                            <span>Screen Reader Labels</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visual" value="colorblindMode">
+                            <span>Colorblind Mode</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visual" value="lineHighlighting">
+                            <span>Line Highlighting</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visual" value="textMagnifier">
+                            <span>Text Magnifier</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visual" value="reduceAnimation">
+                            <span>Reduce Animation</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="category-section">
+                    <h3>🔡 Dyslexia / Learning Disabilities</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="dyslexia" value="openDyslexicFont">
+                            <span>Use OpenDyslexic/Clear Sans Font</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="dyslexia" value="letterSpacing">
+                            <span>Adjust Letter Spacing</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="dyslexia" value="lineSpacing">
+                            <span>Increase Line Spacing</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="dyslexia" value="syllableHighlight">
+                            <span>Syllable Highlighting</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="dyslexia" value="readingRuler">
+                            <span>Reading Ruler</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="dyslexia" value="backgroundTint">
+                            <span>Background Tint</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="category-section">
+                    <h3>🧠 ADHD / Focus Needs</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="adhd" value="largerFonts">
+                            <span>Larger Fonts</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="adhd" value="focusMode">
+                            <span>Minimal UI / Focus Mode</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="adhd" value="hideDistractions">
+                            <span>Hide Distractions (ads/images)</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="adhd" value="soundFeedback">
+                            <span>Sound Feedback for tasks</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="adhd" value="taskChunking">
+                            <span>Task Chunking UI</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="category-section">
+                    <h3>🌙 Photosensitivity</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="photosensitivity" value="alwaysDarkMode">
+                            <span>Always use Dark Mode</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="photosensitivity" value="reduceBrightColors">
+                            <span>Reduce Bright Colors</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="photosensitivity" value="blockFlashAnimations">
+                            <span>Block Flash Animations</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="category-section">
+                    <h3>🧩 Neuro-Cognitive</h3>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="neuroCognitive" value="reduceBrightness">
+                            <span>Reduce Brightness</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="neuroCognitive" value="highStructureLayout">
+                            <span>High Structure Layout</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="neuroCognitive" value="softColorContrast">
+                            <span>Soft Color Contrast</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="neuroCognitive" value="fewerAnimations">
+                            <span>Fewer Animations</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Save Preferences</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="questionnaire.js"></script>
+</body>
+</html>
