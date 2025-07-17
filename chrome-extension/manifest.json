@@ -8,6 +8,9 @@
     "storage",
     "scripting"
   ],
+  "optional_permissions": [
+    "tabCapture"
+  ],
   "host_permissions": [
     "https://*/*",
     "http://*/*"
