@@ -44,17 +44,27 @@ document.addEventListener('DOMContentLoaded', function() {
     function populateAccessibilityFeatures(preferences) {
         const allFeatures = [];
         
-        // Collect all selected features
+        // Collect all enabled features only
         Object.keys(preferences).forEach(category => {
-            allFeatures.push(...preferences[category]);
+            const enabledFeatures = preferences[category].filter(feature => feature.enabled);
+            allFeatures.push(...enabledFeatures);
         });
         
+        // Clear existing content first
+        accessibilityFeatures.innerHTML = '';
+        
         if (allFeatures.length === 0) {
-            accessibilityFeatures.innerHTML = '<p class="no-features">No accessibility features selected.</p>';
+            accessibilityFeatures.innerHTML = '<p class="no-features">No accessibility features enabled. <a href="#" id="enableLink">Enable features</a></p>';
+            document.getElementById('enableLink').addEventListener('click', function(e) {
+                e.preventDefault();
+                chrome.tabs.create({
+                    url: chrome.runtime.getURL('questionnaire.html')
+                });
+            });
             return;
         }
         
-        // Create feature buttons
+        // Create feature buttons for enabled features
         allFeatures.forEach(feature => {
             const featureBtn = document.createElement('button');
             featureBtn.className = 'feature-btn';
@@ -74,6 +84,17 @@ document.addEventListener('DOMContentLoaded', function() {
             
             accessibilityFeatures.appendChild(featureBtn);
         });
+        
+        // Add a "Manage Features" button at the bottom
+        const manageBtn = document.createElement('button');
+        manageBtn.className = 'manage-features-btn';
+        manageBtn.innerHTML = '⚙️ Manage All Features';
+        manageBtn.addEventListener('click', function() {
+            chrome.tabs.create({
+                url: chrome.runtime.getURL('questionnaire.html')
+            });
+        });
+        accessibilityFeatures.appendChild(manageBtn);
     }
     
     function toggleFeature(featureId, category) {
