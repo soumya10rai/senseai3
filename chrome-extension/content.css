@@ -1,0 +1,199 @@
+/* Content CSS for BetterWeb Extension */
+/* This file contains styles that are injected into web pages */
+
+/* Reading ruler styles */
+#betterweb-reading-ruler {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 3px !important;
+    background-color: rgba(255, 0, 0, 0.7) !important;
+    pointer-events: none !important;
+    z-index: 10000 !important;
+    transition: top 0.1s ease !important;
+}
+
+/* Focus indicator styles */
+.betterweb-focus-indicator {
+    outline: 3px solid #007cba !important;
+    outline-offset: 2px !important;
+}
+
+/* Text-to-speech hover indicator */
+.betterweb-tts-hover {
+    background-color: rgba(0, 123, 255, 0.1) !important;
+    cursor: pointer !important;
+}
+
+/* High contrast mode utilities */
+.betterweb-high-contrast {
+    filter: contrast(150%) !important;
+}
+
+/* Dark mode utilities */
+.betterweb-dark-mode {
+    background-color: #1a1a1a !important;
+    color: #e0e0e0 !important;
+}
+
+/* Font size utilities */
+.betterweb-large-text {
+    font-size: 1.2em !important;
+}
+
+.betterweb-extra-large-text {
+    font-size: 1.5em !important;
+}
+
+/* Zoom utilities */
+.betterweb-zoom-125 {
+    zoom: 1.25 !important;
+}
+
+.betterweb-zoom-150 {
+    zoom: 1.5 !important;
+}
+
+/* Animation reduction */
+.betterweb-reduced-motion * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+}
+
+/* Dyslexia font support */
+.betterweb-dyslexia-font {
+    font-family: "OpenDyslexic", "Comic Sans MS", sans-serif !important;
+}
+
+/* Letter spacing for dyslexia */
+.betterweb-letter-spacing {
+    letter-spacing: 0.1em !important;
+}
+
+/* Line spacing for dyslexia */
+.betterweb-line-spacing {
+    line-height: 1.8 !important;
+}
+
+/* Background tint for reading comfort */
+.betterweb-background-tint {
+    background-color: rgba(255, 248, 220, 0.8) !important;
+}
+
+/* Colorblind assistance */
+.betterweb-colorblind-filter {
+    filter: grayscale(0.3) contrast(1.2) !important;
+}
+
+/* Reduced brightness for photosensitivity */
+.betterweb-reduced-brightness {
+    filter: brightness(0.6) !important;
+}
+
+/* Soft contrast for neuro-cognitive needs */
+.betterweb-soft-contrast {
+    filter: contrast(0.8) !important;
+}
+
+/* Hide distractions */
+.betterweb-hide-ads img[src*="ad"],
+.betterweb-hide-ads img[src*="banner"],
+.betterweb-hide-ads div[class*="ad"],
+.betterweb-hide-ads div[id*="ad"],
+.betterweb-hide-ads div[class*="banner"],
+.betterweb-hide-ads div[id*="banner"],
+.betterweb-hide-ads iframe[src*="ad"],
+.betterweb-hide-ads iframe[src*="banner"] {
+    display: none !important;
+}
+
+/* Cursor enhancement */
+.betterweb-large-cursor * {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="red" opacity="0.5"/></svg>') 12 12, auto !important;
+}
+
+/* Line highlighting on hover */
+.betterweb-line-highlight p:hover,
+.betterweb-line-highlight div:hover,
+.betterweb-line-highlight span:hover {
+    background-color: rgba(255, 255, 0, 0.2) !important;
+}
+
+/* Focus mode styles */
+.betterweb-focus-mode * {
+    outline: 2px solid transparent !important;
+}
+
+.betterweb-focus-mode *:focus {
+    outline: 3px solid #007cba !important;
+    outline-offset: 2px !important;
+}
+
+/* Syllable highlighting (placeholder - would need JS implementation) */
+.betterweb-syllable-highlight {
+    /* JavaScript would handle syllable detection and highlighting */
+}
+
+/* Flash animation blocking */
+.betterweb-block-flash * {
+    animation: none !important;
+}
+
+.betterweb-block-flash @keyframes * {
+    0% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+/* Reduced bright colors */
+.betterweb-reduced-bright-colors {
+    filter: brightness(0.7) saturate(0.5) !important;
+}
+
+/* Structure enhancement for neuro-cognitive needs */
+.betterweb-high-structure {
+    /* Would be implemented with JavaScript to add structure indicators */
+}
+
+/* Utility classes for common accessibility needs */
+.betterweb-hidden {
+    display: none !important;
+}
+
+.betterweb-visible {
+    display: block !important;
+}
+
+.betterweb-screen-reader-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Responsive adjustments for different screen sizes */
+@media (max-width: 768px) {
+    .betterweb-large-text {
+        font-size: 1.1em !important;
+    }
+    
+    .betterweb-extra-large-text {
+        font-size: 1.3em !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .betterweb-large-text {
+        font-size: 1.05em !important;
+    }
+    
+    .betterweb-extra-large-text {
+        font-size: 1.2em !important;
+    }
+}
