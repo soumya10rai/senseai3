@@ -151,8 +151,12 @@ class VoiceAssistant {
         
         console.log('Voice command received:', transcript);
         
+        // Dark mode command (bonus feature)
+        if (transcript.includes('dark mode') || transcript.includes('darkmode')) {
+            this.handleDarkModeToggle();
+        }
         // Shopping commands
-        if (transcript.includes('buy') || transcript.includes('purchase')) {
+        else if (transcript.includes('buy') || transcript.includes('purchase')) {
             this.handleShoppingCommand(transcript);
         }
         // Show/search commands
@@ -176,7 +180,7 @@ class VoiceAssistant {
             this.handleAccessibilityCommand('focusMode', true);
         }
         else {
-            this.showError('Command not recognized. Try saying something like "Buy paracetamol from Apollo Pharmacy" or "Turn on high contrast mode"');
+            this.showError('Command not recognized. Try: "Dark mode", "Buy medicine from Apollo", or "Turn on high contrast"');
         }
     }
     
